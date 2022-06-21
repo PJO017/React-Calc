@@ -1,6 +1,11 @@
 pipeline {
-    agent any
-    tools {nodejs "NodeJS-16.15.1"}
+    agent {
+        docker {
+            image "node"
+            args "-p 3000:3000"
+        }
+    }
+   
     stages {
         stage("run build") {
             steps {
