@@ -5,8 +5,7 @@ pipeline {
             steps {
                 echo "building app..."
                 nodejs('NodeJS-16.0.0') {
-                    sh 'unset CI'
-                    sh 'npm i'
+                    sh 'npm install'
                     sh 'npm run build'
                 }
 
