@@ -1,14 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:16'
+            args '-p 3000:3000'
     stages {
         stage("run build") {
             steps {
                 echo "building app..."
-                nodejs('NodeJS-16.0.0') {
-                    sh 'npm install'
-                    sh 'npm run build'
-                }
-
+                sh 'npm install'
+                sh 'npm run build'
             }
         }
     }
